@@ -1,0 +1,19 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid black;
+    background-color: rgba(250, 137, 137, 0.575);
+}
+
+.label {
+    display: block;
+    margin-bottom: 15px;
+    width: 100%;
+    font-size: 22px;
+}
+
+.addBtn {
+    border-radius: 1px;
+    align-self: center;
+}
