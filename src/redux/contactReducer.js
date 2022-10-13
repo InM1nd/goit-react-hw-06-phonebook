@@ -46,7 +46,7 @@ export const filterSlice = createSlice({
     [filterSlice.name]: filterSlice.reducer,
   });
   
-export const persistedReducer = persistReducer(persistConfig, mainReducers);
+export const persistedReducer = persistReducer(mainReducers, persistConfig);
 
 export const { addContact, deleteContact  } = contactsSlice.actions;
 export const { changeFilter } = filterSlice.actions;
