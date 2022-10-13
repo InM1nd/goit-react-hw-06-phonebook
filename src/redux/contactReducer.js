@@ -34,10 +34,11 @@ export const filterSlice = createSlice({
     },
   });
 
+
   const persistConfig = {
     key:'items',
     storage,
-    whitelist:['filter']
+    blacklist:['filter']
   }
   
   const mainReducers = combineReducers({
@@ -45,7 +46,6 @@ export const filterSlice = createSlice({
     [filterSlice.name]: filterSlice.reducer,
   });
   
-
 export const persistedReducer = persistReducer(persistConfig, mainReducers);
 
 export const { addContact, deleteContact  } = contactsSlice.actions;

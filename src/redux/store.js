@@ -11,6 +11,7 @@ import {
 import { persistedReducer } from './contactReducer';
 
 
+
 export const store = configureStore({
   reducer: {
     contacts: persistedReducer,
@@ -25,4 +26,7 @@ export const store = configureStore({
 
 
 
+
 export const persistor = persistStore(store);
+
+
