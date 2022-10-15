@@ -8,13 +8,19 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { persistedReducer } from './contactReducer';
+import rootReducer from './contactReducer';
+import storage from 'redux-persist/lib/storage';
+import { persistReducer } from 'redux-persist';
 
-
+const persistConfig = {
+  key:'items',
+  storage,
+  blacklist:['filter']
+}
 
 export const store = configureStore({
   reducer: {
-    contacts: persistedReducer,
+    contacts: persistReducer(persistConfig, rootReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -28,5 +34,3 @@ export const store = configureStore({
 
 
 export const persistor = persistStore(store);
-
-
