@@ -1,16 +1,15 @@
-import PropTypes from 'prop-types';
 import style from './ContactFilter.module.css';
 import { useSelector, useDispatch } from "react-redux";
-import { changeFilter, getFilter} from '../../redux/contactReducer'
+import { changeFilter} from '../../redux/actions'
 
-export default function Filter ({ title }) {
-  const value = useSelector(getFilter);
+export default function Filter () {
+  const value = useSelector(state => state.contacts.filter);
   const dispatch = useDispatch();
 
 
   return (
     <label>
-      <p className={style.text}>{title}</p>
+      <p className={style.text}>Find contacts by name</p>
       <input
         type="text"
         value={value}
@@ -19,9 +18,5 @@ export default function Filter ({ title }) {
       ></input>
     </label>
   );
-};
-
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
 };
 

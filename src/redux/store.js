@@ -8,7 +8,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import rootReducer from './contactReducer';
+import contactsReducer from './contactReducer';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 
@@ -20,7 +20,7 @@ const persistConfig = {
 
 export const store = configureStore({
   reducer: {
-    contacts: persistReducer(persistConfig, rootReducer),
+    contacts: persistReducer(persistConfig, contactsReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
